@@ -61,5 +61,20 @@ public class AssignmentOne {
         
         // Required separator
         System.out.println("\n==================================");
+
+        // Test Part 4: Appointment Class (optional test)
+        System.out.println("\n=== Testing Part 4: Appointment Class ===");
+        try {
+            // Create a test doctor (reuse Part 3's gp1)
+            GeneralPractitioner testGP = new GeneralPractitioner(101, "Dr. Emma Davis", "MBBS", 20);
+            // Create a valid appointment
+            Appointment testAppt = new Appointment("Alice Johnson", "0412345678", "10:30", testGP);
+            testAppt.printAppointmentDetails();
+   
+            // Test invalid mobile (should throw exception)
+            Appointment invalidAppt = new Appointment("Bob Smith", "1234", "09:00", testGP);
+        } catch (IllegalArgumentException e) {
+            System.out.println("\nValidation Test Passed: " + e.getMessage());
+        }
     }
 }
